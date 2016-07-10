@@ -26,4 +26,11 @@
         android:text="date"
         android:layout_centerHorizontal="true"
         android:layout_margin="15dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="SHOW DATE PICKER DIALOG"
+        android:id="@+id/etShow"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

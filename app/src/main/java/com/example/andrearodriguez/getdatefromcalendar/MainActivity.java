@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn;
     TextView txtDate;
+    EditText editText;
     int year_x,month_x,day_x;
     static final int DILOG_ID = 0;
 
@@ -32,12 +34,26 @@ public class MainActivity extends AppCompatActivity {
         day_x = cal.get(Calendar.DAY_OF_MONTH);
 
         showDialogonButtonClick();
+        showDialogonEditTextClick();
     }
 
     public void showDialogonButtonClick(){
         btn = (Button)findViewById(R.id.button);
 
         btn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showDialog(DILOG_ID);
+                    }
+                }
+        );
+    }
+
+    public void showDialogonEditTextClick(){
+        editText = (EditText) findViewById(R.id.etShow);
+
+        editText.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -62,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(MainActivity.this,year_x + "/" + month_x + "/" + day_x, Toast.LENGTH_LONG).show();
             txtDate.setText(year_x + "/" + month_x + "/" + day_x);
+            editText.setText(year_x + "/" + month_x + "/" + day_x);
 
         }
     };
